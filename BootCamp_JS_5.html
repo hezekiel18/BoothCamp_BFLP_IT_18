@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Password</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <style>
+        body {
+            padding-top: 56px; /* Adjusted for Bootstrap fixed navbar */
+            background-color: #f4f4f4;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        footer {
+            padding: 30px 0;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Portofolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+   
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light">
+        <div class="container">
+            <div class="row mb-5">                                
+                <div class="col-md-4">                    
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="formGroupExampleInput" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="">
+                        </div>   
+                        <button type="button" class="btn btn-primary" onclick="getSelectedValue()">CEK</button>                                                                                                    
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </section>   
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        function getSelectedValue(operator) {            
+            const pwd   = "Pass123";
+            const input = document.getElementById("pwd");            
+            if(input.value == pwd){
+                alert("Password anda benar" );                
+            }            
+            else{
+                alert("Password salah");
+            }
+        }
+
+        let myArr  = [13, 11, 18, 14, 15, 19, 12, 16, 17];        
+        console.log("SORTING ARRAY >>>>>>>>> " );
+        console.log("Sebelum di urutkan:", myArr);                
+        function sortingArray(arr) {            
+            const length = arr.length;            
+            for (let i = 0; i < length - 1; i++) {                
+                for (let j = 0; j < length - 1 - i; j++) {                
+                    if (arr[j] > arr[j + 1]) {                    
+                        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    }
+                }
+                //console.log(arr[i]);
+            }                 
+
+            arr.forEach(element => {                
+                console.log(element);                                
+            });
+        }
+        console.log("Setelah di urutkan: ");
+        sortingArray(myArr);        
+
+        myString  = "hacktiv";
+        myString2 = "radar";
+        function reverseArray(str) {  
+            arrChar = str.split('');                                    
+            
+            for (let i = 0; i < arrChar.length / 2; i++) {
+                const temp = arrChar[i];
+                arrChar[i] = arrChar[arrChar.length - 1 - i];
+                arrChar[arrChar.length - 1 - i] = temp;
+            }
+
+            const result = arrChar.join('');
+            if(str == result){
+                console.log(result + " is a palindorm");                            
+            }else{
+                console.log(result);                            
+            }
+        }
+        console.log("REVERSE ARRAY >>>>>>>>> " );
+        reverseArray(myString2);
+
+       let myArr2  = [3, 30, 2, 20, 1, 5, 4];        
+        function multipleMax(arr){
+            console.log(arr);
+            if(arr.length >= 3){
+                let uniqueArray = arr.filter((value, index, self) => {
+                                                    return self.indexOf(value) === index;
+                                    });                
+                let count = 1;
+                let result = 1;
+                while (count <= 3 && uniqueArray.length > 0) {
+                    const maxValue = Math.max(...uniqueArray);                    
+                    result *= maxValue;                    
+                    const maxIndex = uniqueArray.indexOf(maxValue);
+                    uniqueArray.splice(maxIndex, 1);                                  
+                    count++
+                }                
+                console.log(result);
+            }
+        }
+        console.log("MULTIPLYING ARRAY >>>>>>>>> " );
+        multipleMax(myArr2);
+
+    </script>
+</body>
+</html>
