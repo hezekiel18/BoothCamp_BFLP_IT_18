@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Get Selected Value from Table Row</title>
+</head>
+
+<body>
+
+    <table id="myTable" class="table-primary">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>Links</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" value="John Doe"></td>
+                <td><input type="text" value="john@example.com"></td>
+                <td><img src="testGambar.jpg" width="100" height="100"></td>
+                <td>
+                    <ol>
+                        <li><a href="https://www.google.com/" target="blank" >click me to google.</a></li>
+                        <li><a href="https://www.youtube.com/" target="blank">click me to youtube.</a></li>
+                    </ol>
+                </td>
+                <td><button onclick="getSelectedValue(this)">Get Value</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <div>
+        <label>Comment</label>
+    </div>
+    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+    <div class="flex-container">        
+            <input type="hidden" name="username" id="username">
+    </div>                       
+    <div class="flex-container">
+        <form action="">
+            <label for="class">Class</label>
+                <input type="text" name="class" id="class">
+            <label for="username">Age</label>
+                <input type="text" name="username" id="username">
+            <label for="batch">Batch</label>
+                <input type="text" name="batch" id="batch">
+            <button onclick="">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function getSelectedValue(button) {
+            // Traverse up to the table row (parent of the parent of the button)
+            var tableRow = button.parentNode.parentNode;
+
+            // Get the input value from the first column (assuming it's the name column)
+            var nameInput = tableRow.querySelector('td:first-child input');
+            var selectedValue = nameInput.value;
+
+            // Display or use the selected value as needed
+            console.log("Selected Value:", selectedValue);
+            // You can do something else with the selected value here
+        }
+    </script>
+    <style>
+        table, th, td {
+      border: 1px solid;
+}
+    .flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+
+</html>
